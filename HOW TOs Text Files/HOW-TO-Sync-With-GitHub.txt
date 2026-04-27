@@ -1,0 +1,58 @@
+================================================================================
+HOW TO: SYNC WITH GITHUB
+================================================================================
+
+Step 1: Initial Setup (Done)
+-----------------------------
+- Git repo created at: /home/ai-king/Public/Vault-001
+- Remote: https://github.com/jjuanthebrand-stack/aiking-md-.git
+- Token configured (stored locally)
+
+Step 2: Push Changes to GitHub
+-------------------------------
+Method 1 - Using script:
+  ~/remmina/git-sync-vps.sh push
+
+Method 2 - Manual:
+  cd /home/ai-king/Public/Vault-001
+  git add .
+  git commit -m "Your message"
+  git push origin master
+
+Step 3: Pull Changes from GitHub
+--------------------------------
+Method 1 - Using script:
+  ~/remmina/git-sync-vps.sh pull
+
+Method 2 - Manual:
+  cd /home/ai-king/Public/Vault-001
+  git pull origin master
+
+Step 4: Check Git Status
+-------------------------
+~/remmina/git-sync-vps.sh status
+
+Or:
+  cd /home/ai-king/Public/Vault-001
+  git status
+  git log --oneline -5
+
+Step 5: Full Sync Workflow
+--------------------------
+1. Make changes in Obsidian
+2. Push to GitHub:
+   ~/remmina/git-sync-vps.sh push
+3. Push to VPS:
+   ~/remmina/sync-vps.sh push
+
+Combined (one command):
+  ~/remmina/git-sync-vps.sh push && ~/remmina/sync-vps.sh push
+
+Step 6: Clone to New Machine
+----------------------------
+1. Install git
+2. Clone repo:
+   git clone https://github.com/jjuanthebrand-stack/aiking-md-.git ~/Obsidian
+3. Set up remote sync scripts (see other guides)
+
+================================================================================

@@ -1,0 +1,67 @@
+================================================================================
+HOW TO: USE OBSIDIAN WITH TERMINAL
+================================================================================
+
+INSTALL OBSIDIAN CLI (MARKDOWN EDITOR)
+------------------------------------
+Option 1: Use Obsidian's terminal plugin
+  - Install "Shell Commands" plugin in Obsidian
+  - Configure commands
+
+Option 2: Use alternative CLI tools
+  # For editing markdown:
+  nano file.md          # Basic editor
+  vim file.md          # Advanced editor
+  code file.md        # VS Code CLI
+
+--------------------------------------------------------------------------------
+
+VIEW MARKDOWN IN TERMINAL
+-------------------------
+1. cat (view file):
+   cat ~/Public/Vault-001/designs/app-architecture.md
+
+2. less (scrollable):
+   less ~/Public/Vault-001/designs/app-architecture.md
+
+3. glow (pretty markdown):
+   sudo apt install glow
+   glow ~/Public/Vault-001/designs/app-architecture.md
+
+4. mdv (colored markdown):
+   pip install mdv
+   mdv ~/Public/Vault-001/designs/app-architecture.md
+
+--------------------------------------------------------------------------------
+
+SEARCH IN VAULT
+----------------
+1. Find file by name:
+   find ~/Public/Vault-001 -name "*.md"
+
+2. Search content:
+   grep -r "keyword" ~/Public/Vault-001/
+
+3. Use ripgrep (faster):
+   rg "keyword" ~/Public/Vault-001/
+
+--------------------------------------------------------------------------------
+
+QUICK CREATE NOTE
+-------------------
+echo "# New Note" >> ~/Public/Vault-001/notes/new-note.md
+
+--------------------------------------------------------------------------------
+
+BATCH OPERATIONS
+----------------
+List all .md files:
+  ls ~/Public/Vault-001/**/*.md
+
+Count notes:
+  find ~/Public/Vault-001 -name "*.md" | wc -l
+
+Word count all:
+  wc -w ~/Public/Vault-001/*.md
+
+================================================================================

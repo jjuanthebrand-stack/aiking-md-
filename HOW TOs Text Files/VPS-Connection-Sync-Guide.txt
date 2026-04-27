@@ -1,0 +1,78 @@
+================================================================================
+OBSIDIAN VPS CONNECTION & SYNC GUIDE
+================================================================================
+
+--------------------------------------------------------------------------------
+STEP 1: CONNECT TO VPS VIA VNC
+--------------------------------------------------------------------------------
+
+1. Open terminal
+2. SSH tunnel auto-starts on boot (or run manually):
+   ssh -N -L 5999:127.0.0.1:5900 -i ~/.ssh/id_ed25519 root@167.88.42.209
+
+3. Open Remmina:
+   remmina
+
+4. In Remmina:
+   - Protocol: VNC
+   - Server: 127.0.0.1:5999
+   - Username: root
+   - Click Connect
+
+--------------------------------------------------------------------------------
+STEP 2: SYNC FILES LOCAL ↔ VPS
+--------------------------------------------------------------------------------
+
+Quick Sync (rsync - smart, skips unchanged files):
+
+  Push to VPS:
+  ~/remmina/sync-vps.sh push
+
+  Pull to Local:
+  ~/remmina/sync-vps.sh pull
+
+--------------------------------------------------------------------------------
+STEP 3: SYNC WITH GITHUB
+--------------------------------------------------------------------------------
+
+Push to GitHub:
+  ~/remmina/git-sync-vps.sh push
+
+Pull from GitHub:
+  ~/remmina/git-sync-vps.sh pull
+
+Check Status:
+  ~/remmina/git-sync-vps.sh status
+
+--------------------------------------------------------------------------------
+STEP 4: START/STOP SSH TUNNEL MANUALLY
+--------------------------------------------------------------------------------
+
+Start Tunnel:
+  sudo systemctl start autossh-vpn.service
+
+Stop Tunnel:
+  sudo systemctl stop autossh-vpn.service
+
+Check Status:
+  sudo systemctl status autossh-vpn.service
+
+--------------------------------------------------------------------------------
+STEP 5: VAULT LOCATIONS
+--------------------------------------------------------------------------------
+
+Local:   /home/ai-king/Public/Vault-001
+VPS:    /root/Obsidian Vault
+GitHub: https://github.com/jjuanthebrand-stack/aiking-md-.git
+
+--------------------------------------------------------------------------------
+QUICK COMMANDS REFERENCE
+--------------------------------------------------------------------------------
+
+Connect to VPS:      remmina -c vnc://root:@127.0.0.1:5999
+Push to VPS:        ~/remmina/sync-vps.sh push
+Pull from VPS:      ~/remmina/sync-vps.sh pull
+Push to GitHub:     ~/remmina/git-sync-vps.sh push
+Pull from GitHub:   ~/remmina/git-sync-vps.sh pull
+
+================================================================================

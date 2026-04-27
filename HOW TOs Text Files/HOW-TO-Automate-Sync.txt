@@ -1,0 +1,66 @@
+================================================================================
+HOW TO: AUTOMATE SYNC OPERATIONS
+================================================================================
+
+METHOD 1: ALIAS SHORTCUTS
+---------------------------
+Add to ~/.bashrc:
+
+alias vps-push='~/remmina/sync-vps.sh push'
+alias vps-pull='~/remmina/sync-vps.sh pull'
+alias gh-push='~/remmina/git-sync-vps.sh push'
+alias gh-pull='~/remmina/git-sync-vps.sh pull'
+alias fullsync='~/remmina/git-sync-vps.sh push && ~/remmina/sync-vps.sh push'
+
+Apply:
+  source ~/.bashrc
+
+Usage:
+  vps-push    # Push to VPS
+  vps-pull    # Pull from VPS
+  fullsync    # Push to both
+
+--------------------------------------------------------------------------------
+
+METHOD 2: AUTO-SYNC ON FILE CHANGE (INOTIFYWAIT)
+----------------------------------------------
+1. Install inotify-tools:
+   sudo apt install inotify-tools
+
+2. Create auto-sync script:
+   nano ~/remmina/watch-vault.sh
+
+   #!/bin/bash
+   while inotifywait -r -e modify,move,create,delete ~/Public/Vault-001; do
+     ~/remmina/git-sync-vps.sh push
+     ~/remmina/sync-vps.sh push
+   done
+
+3. Make executable:
+   chmod +x ~/remmina/watch-vault.sh
+
+4. Run in background:
+   ~/remmina/watch-vault.sh &
+
+--------------------------------------------------------------------------------
+
+METHOD 3: CRON SCHEDULE (AUTO SYNC EVERY HOUR)
+---------------------------------------------
+1. Edit crontab:
+   crontab -e
+
+2. Add line:
+   0 * * * * /home/ai-king/remmina/git-sync-vps.sh push >> /home/ai-king/sync.log 2>&1
+
+This runs every hour at :00
+
+--------------------------------------------------------------------------------
+
+METHOD 4: GIT PUSH ON SAVE (OBSIDIAN PLUGIN)
+-----------------------------------------
+1. Install "Shell Commands" plugin in Obsidian
+2. Create command:
+   shell: ~/remmina/git-sync-vps.sh push
+3. Enable "Run after save"
+
+================================================================================

@@ -1,0 +1,75 @@
+================================================================================
+HOW TO: SECURE SSH AND KEYS
+================================================================================
+
+STEP 1: SSH KEY BASICS
+---------------------
+Generate new key:
+  ssh-keygen -t ed25519 -C "description"
+
+Default location: ~/.ssh/id_ed25519
+
+Protect key:
+  chmod 600 ~/.ssh/id_ed25519
+  chmod 644 ~/.ssh/id_ed25519.pub
+
+--------------------------------------------------------------------------------
+
+STEP 2: ADD KEY TO VPS
+-----------------------
+Method 1: ssh-copy-id
+  ssh-copy-id -i ~/.ssh/id_ed25519.pub root@167.88.42.209
+
+Method 2: Manual
+  # On VPS:
+  mkdir -p ~/.ssh
+  echo "PUBLIC_KEY_CONTENT" >> ~/.ssh/authorized_keys
+  chmod 700 ~/.ssh
+  chmod 600 ~/.ssh/authorized_keys
+
+--------------------------------------------------------------------------------
+
+STEP 3: SSH CONFIG FOR EASY ACCESS
+----------------------------------
+Edit: nano ~/.ssh/config
+
+Add:
+Host vps
+    HostName 167.88.42.209
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+
+Usage: ssh vps (instead of full command)
+
+--------------------------------------------------------------------------------
+
+STEP 4: SECURITY HARDENING
+--------------------------
+1. Disable password auth (on VPS):
+   nano /etc/ssh/sshd_config
+   PasswordAuthentication no
+   systemctl restart sshd
+
+2. Allow specific IP only:
+   AllowUsers root@YOUR_IP
+
+3. Use fail2ban:
+   sudo apt install fail2ban
+
+--------------------------------------------------------------------------------
+
+STEP 5: ROTATE KEYS REGULARLY
+----------------------------
+1. Generate new key:
+   ssh-keygen -t ed25519 -C "new-key-2024"
+
+2. Add new pub key to VPS:
+   ssh-copy-id -i ~/.ssh/id_ed25519.pub root@167.88.42.209
+
+3. Remove old key on VPS:
+   # On VPS:
+   nano ~/.ssh/authorized_keys
+   (delete old line)
+
+================================================================================

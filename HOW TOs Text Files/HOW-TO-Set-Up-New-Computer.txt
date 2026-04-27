@@ -1,0 +1,44 @@
+================================================================================
+HOW TO: SET UP NEW COMPUTER FOR OBSIDIAN SYNC
+================================================================================
+
+Step 1: Install Required Tools
+-------------------------------
+1. Install git:
+   sudo apt install git
+
+2. Install rsync:
+   sudo apt install rsync
+
+3. Install Remmina + VNC:
+   sudo apt install remmina remmina-plugin-vnc
+
+Step 2: Clone Repository
+------------------------
+git clone https://github.com/jjuanthebrand-stack/aiking-md-.git ~/Obsidian
+
+Step 3: Set Up SSH Key
+---------------------
+1. Generate SSH key:
+   ssh-keygen -t ed25519 -C "your-email@example.com"
+
+2. Add to GitHub (web UI):
+   - Go to github.com/settings/keys
+   - Add ~/.ssh/id_ed25519.pub
+
+3. Set Git credentials:
+   git remote set-url origin https://jjuanthebrand-stack:YOUR_TOKEN@github.com/...
+
+Step 4: Copy Sync Scripts
+-----------------------
+mkdir -p ~/remmina
+# Copy these files from original machine:
+# - sync-vps.sh
+# - git-sync-vps.sh
+
+Step 5: Test Sync
+----------------
+~/remmina/git-sync-vps.sh pull
+~/remmina/sync-vps.sh pull
+
+================================================================================

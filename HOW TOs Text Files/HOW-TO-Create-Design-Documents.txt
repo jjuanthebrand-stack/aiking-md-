@@ -1,0 +1,58 @@
+================================================================================
+HOW TO: CREATE DESIGN DOCUMENTS IN OBSIDIAN
+================================================================================
+
+Step 1: Create Design Doc
+-------------------------
+1. Open Obsidian vault at: /home/ai-king/Public/Vault-001
+2. Create new folder: designs/ (if not exists)
+3. Create new file: designs/your-design-name.md
+
+Step 2: Use Design Template
+-------------------------
+Copy this template:
+
+---
+# Design: [Design Title]
+
+## Overview
+Brief description of what this design covers.
+
+## Components
+| Component | Purpose | Tech |
+|------------|---------|------|
+| Component1 | Purpose1 | Tech1 |
+| Component2 | Purpose2 | Tech2 |
+
+## Flow
+```
+User → [Process Flow]
+```
+
+## Data Structure
+```json
+{
+  "field1": "type",
+  "field2": "type"
+}
+```
+
+## Decisions Made
+- Why this approach?
+- Alternatives considered
+
+## Status
+- [ ] Draft
+- [ ] Review
+- [ ] Approved
+---
+
+Step 3: Sync to VPS & GitHub
+--------------------------
+~/remmina/git-sync-vps.sh push && ~/remmina/sync-vps.sh push
+
+Step 4: Access on VPS
+--------------------
+Designs sync to: /root/Obsidian Vault/designs/
+
+================================================================================

@@ -1,0 +1,61 @@
+================================================================================
+HOW TO: MANAGE MULTIPLE OBSIDIAN VAULTS
+================================================================================
+
+CURRENT SETUP
+-------------
+Vault-001: /home/ai-king/Public/Vault-001 (Main)
+         - Synced to: /root/Obsidian Vault (VPS)
+         - Synced to: GitHub (aiking-md-.git)
+
+--------------------------------------------------------------------------------
+
+ADD NEW VAULT
+------------
+1. Create vault folder:
+   mkdir ~/Obsidian/Vault-002
+
+2. Initialize git (optional):
+   cd ~/Obsidian/Vault-002
+   git init
+   git add .
+   git commit -m "Initial"
+
+3. Add to sync script (advanced):
+   - Edit ~/remmina/sync-vps.sh
+   - Add vault path variable
+
+--------------------------------------------------------------------------------
+
+SWITCH VAULTS IN OBSIDIAN
+-------------------------
+1. Open Obsidian
+2. File → Switch Vault
+3. Select vault to open
+
+--------------------------------------------------------------------------------
+
+RENAME VAULT
+------------
+1. Close vault in Obsidian
+2. Rename folder:
+   mv Vault-001 Vault-NewName
+3. Open new name in Obsidian
+4. If using git:
+   cd Vault-NewName
+   git remote set-url origin https://github.com/.../new-repo.git
+
+--------------------------------------------------------------------------------
+
+SYNC SPECIFIC VAULT
+------------------
+1. Edit sync script:
+   nano ~/remmina/sync-vps.sh
+
+2. Change source path:
+   VAULT_PATH="/home/ai-king/Obsidian/Vault-002"
+
+3. Run sync:
+   ~/remmina/sync-vps.sh push
+
+================================================================================

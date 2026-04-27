@@ -1,0 +1,85 @@
+================================================================================
+HOW TO: TROUBLESHOOT COMMON ISSUES
+================================================================================
+
+ISSUE 1: SSH TUNNEL WON'T CONNECT
+--------------------------------
+Symptoms: Connection refused, tunnel fails
+
+Fix:
+  1. Check VPS is online
+  2. Restart tunnel:
+     sudo systemctl restart autossh-vpn.service
+  3. Check port 5999:
+     ss -tlnp | grep 5999
+
+--------------------------------------------------------------------------------
+
+ISSUE 2: GIT PUSH FAILS
+----------------------
+Symptoms: "Permission denied" or "401" error
+
+Fix:
+  1. Check token is valid (GitHub → Settings → Developer → Tokens)
+  2. Update stored token:
+     cd ~/Public/Vault-001
+     git remote set-url origin https://jjuanthebrand-stack:NEW_TOKEN@github.com/...
+  3. Try push again
+
+--------------------------------------------------------------------------------
+
+ISSUE 3: RSYNC SYNC STUCKS / SLOW
+---------------------------------
+Symptoms: Sync hangs or very slow
+
+Fix:
+  1. Cancel with Ctrl+C
+  2. Check VPS connection:
+     ssh -i ~/.ssh/id_ed25519 root@167.88.42.209 "ls"
+  3. Kill stuck ssh:
+     pkill -9 ssh
+  4. Retry sync:
+     ~/remmina/sync-vps.sh push
+
+--------------------------------------------------------------------------------
+
+ISSUE 4: REMMINA SHOWS BLACK SCREEN
+----------------------------------
+Symptoms: VNC connects but black screen
+
+Fix:
+  1. Check VPS display is running:
+     ssh root@167.88.42.209 "ps aux | grep x11vno"
+  2. Restart VNC on VPS:
+     ssh root@167.88.42.209 "pkill x11vnc; x11vnc -display :0 -forever -bg"
+  3. Reconnect in Remmina
+
+--------------------------------------------------------------------------------
+
+ISSUE 5: FILES NOT SYNCING
+--------------------------
+Symptoms: Changes don't appear on VPS/GitHub
+
+Fix:
+  1. Force push to GitHub:
+     ~/remmina/git-sync-vps.sh push
+  2. Force push to VPS:
+     ~/remmina/sync-vps.sh push
+  3. Check files exist:
+     ls ~/Public/Vault-001/
+
+--------------------------------------------------------------------------------
+
+ISSUE 6: AUTOSSH SERVICE WON'T START
+---------------------------------
+Symptoms: "Could not resolve hostname" or key error
+
+Fix:
+  1. Check SSH config:
+     cat ~/.ssh/config
+  2. Verify key permissions:
+     chmod 600 ~/.ssh/id_ed25519
+  3. Restart service:
+     sudo systemctl restart autossh-vpn.service
+
+================================================================================

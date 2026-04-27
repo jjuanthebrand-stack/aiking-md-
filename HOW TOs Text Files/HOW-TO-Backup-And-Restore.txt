@@ -1,0 +1,50 @@
+================================================================================
+HOW TO: BACKUP AND RESTORE OBSIDIAN VAULT
+================================================================================
+
+METHOD 1: LOCAL BACKUP (ZIP)
+----------------------------
+Create Backup:
+  cd ~/Public
+  zip -r Vault-001-backup-$(date +%Y%m%d).zip Vault-001
+
+Restore Backup:
+  unzip Vault-001-backup-DATE.zip
+
+Location: ~/Public/
+
+--------------------------------------------------------------------------------
+
+METHOD 2: BACKUP TO USB
+---------------------
+1. Insert USB drive
+2. Mount USB (check with: lsblk)
+3. Create backup:
+   sudo mount /dev/sdX1 /mnt/usb
+   cp -r ~/Public/Vault-001 /mnt/usb/
+   sudo umount /mnt/usb
+
+--------------------------------------------------------------------------------
+
+METHOD 3: GITHUB BACKUP (Recommended)
+---------------------------------
+1. Push latest:
+   ~/remmina/git-sync-vps.sh push
+
+2. Verify on GitHub:
+   - Go to github.com/jjuanthebrand-stack/aiking-md-
+   - Check files under "master" branch
+
+Restore from GitHub:
+   rm -rf ~/Public/Vault-001
+   git clone https://github.com/jjuanthebrand-stack/aiking-md-.git ~/Public/Vault-001
+
+--------------------------------------------------------------------------------
+
+METHOD 4: VPS BACKUP
+--------------------
+1. Connect via VNC or SSH
+2. Backup on VPS:
+   cp -r /root/Obsidian\ Vault /root/Obsidian\ Vault-backup
+
+================================================================================

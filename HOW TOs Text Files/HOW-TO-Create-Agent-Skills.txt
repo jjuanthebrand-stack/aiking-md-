@@ -1,0 +1,44 @@
+================================================================================
+HOW TO: CREATE AGENT SKILLS IN OBSIDIAN
+================================================================================
+
+Step 1: Create Skill File
+---------------------
+1. Open Obsidian vault at: /home/ai-king/Public/Vault-001
+2. Create new folder: skills/ (if not exists)
+3. Create new file: skills/your-skill-name.md
+
+Step 2: Define Skill Template
+----------------------------
+Copy this template:
+
+---
+# Skill: [Skill Name]
+
+## Description
+Brief description of what this skill does.
+
+## Triggers
+- Keywords: "keyword1", "keyword2"
+- File extensions: .py, .js, .sh (optional)
+
+## Actions
+1. First action step
+2. Second action step
+3. Third action step
+
+## Example Prompt
+```
+"example prompt to trigger skill"
+```
+---
+
+Step 3: Sync to VPS & GitHub
+--------------------------
+~/remmina/git-sync-vps.sh push && ~/remmina/sync-vps.sh push
+
+Step 4: Access on VPS
+--------------------
+Skills sync to: /root/Obsidian Vault/skills/
+
+================================================================================

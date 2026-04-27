@@ -1,0 +1,51 @@
+================================================================================
+HOW TO: CONNECT TO OBSIDIAN VPS VIA VNC
+================================================================================
+
+Method 1: Using Remmina (Recommended)
+-------------------------------------
+1. Ensure SSH tunnel is running:
+   sudo systemctl status autossh-vpn.service
+   (Should show: Active: active (running))
+
+2. If not running, start it:
+   sudo systemctl start autossh-vpn.service
+
+3. Open Remmina:
+   remmina
+
+4. Create new connection:
+   - Protocol: VNC
+   - Server: 127.0.0.1:5999
+   - Username: root
+   - Color depth: 24
+   - Quality: High
+
+5. Click Connect
+
+Method 2: Command Line (Quick Connect)
+--------------------------------------
+1. Start tunnel manually:
+   ssh -N -L 5999:127.0.0.1:5900 -i ~/.ssh/id_ed25519 root@167.88.42.209
+
+2. Connect with Remmina:
+   remmina -c vnc://root:@127.0.0.1:5999
+
+Method 3: Using the Script
+------------------------
+~/remmina/connect_obsidian_vps.sh
+
+Troubleshooting
+-------------
+- Tunnel not running: sudo systemctl restart autossh-vpn.service
+- Connection refused: Check VPS x11vnc is running on VPS
+- Black screen: VPS may be sleeping, try rebooting VPS
+
+VPS Connection Details
+-----------------------
+VPS IP: 167.88.42.209
+VNC Port: 5900
+SSH Port: 22
+Local Tunnel Port: 5999
+
+================================================================================

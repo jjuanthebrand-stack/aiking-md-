@@ -1,0 +1,191 @@
+{
+  "main": {
+    "id": "5005bb3ab42ccc92",
+    "type": "split",
+    "children": [
+      {
+        "id": "25bf66783264fa19",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "99f350309de0260c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "autonomous-ai-agents-hermes-agent-skill-info.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "autonomous-ai-agents-hermes-agent-skill-info"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5efba1a5584da419",
+    "type": "split",
+    "children": [
+      {
+        "id": "257405fd8f5ada9a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7d1a679cf61050ac",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f656b21ff9c721b9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "86080d864bf66a10",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "da18b723cd1b30de",
+    "type": "split",
+    "children": [
+      {
+        "id": "b75110790fb5391f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a474e25c42d14d00",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "autonomous-ai-agents-hermes-agent-skill-info.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for autonomous-ai-agents-hermes-agent-skill-info"
+            }
+          },
+          {
+            "id": "366b92e5b8b854c7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "autonomous-ai-agents-hermes-agent-skill-info.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from autonomous-ai-agents-hermes-agent-skill-info"
+            }
+          },
+          {
+            "id": "744b64c7bc97b8ff",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "23ed38f09d2d5883",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "3e9e047edcc200ea",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "autonomous-ai-agents-hermes-agent-skill-info.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of autonomous-ai-agents-hermes-agent-skill-info"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "99f350309de0260c",
+  "lastOpenFiles": [
+    "transcript.md",
+    "autonomous-ai-agents-hermes-agent-skill-info.md"
+  ]
+}
